@@ -67,8 +67,9 @@ class Settings:
     def extensions(self):
         """Prints formatted settings file."""
         formatted = []
-        for folder_name, extensions in self.__extensions.items():
-            ext_str = ', '.join(extensions)
+        extensions = self.read_settings_file()
+        for folder_name, ext in extensions.items():
+            ext_str = ', '.join(ext)
             formatted.append(f'-{folder_name}: {ext_str}')
         return formatted
 
